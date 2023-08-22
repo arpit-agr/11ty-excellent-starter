@@ -1,7 +1,7 @@
 const lodash = require('lodash');
 const dayjs = require('dayjs');
 const markdownLib = require('../plugins/markdown');
-const site = require('../../src/_data/meta');
+const site = require('../../src/_data/site');
 const {throwIfNotType} = require('../utils');
 const md = require('markdown-it')();
 
