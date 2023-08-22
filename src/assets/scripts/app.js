@@ -1,9 +1,8 @@
 // © Manuel Matuzović: https://web.dev/website-navigation/
 
-const nav = document.querySelector('nav');
+const nav = document.querySelector('#main-nav');
 const list = nav.querySelector('ul');
 const burgerClone = document.querySelector('#burger-template').content.cloneNode(true);
-const svg = nav.querySelector('svg');
 
 const button = burgerClone.querySelector('button');
 button.addEventListener('click', e => {
@@ -11,7 +10,7 @@ button.addEventListener('click', e => {
   button.setAttribute('aria-expanded', !isOpen);
 });
 
-// avoid DRY: disabling menu
+// DRY: disabling menu
 const disableMenu = () => {
   button.setAttribute('aria-expanded', false);
 };
