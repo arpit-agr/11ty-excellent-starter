@@ -1,6 +1,5 @@
 const lodash = require('lodash');
 const dayjs = require('dayjs');
-const CleanCSS = require('clean-css');
 const markdownLib = require('../plugins/markdown');
 const site = require('../../src/_data/meta');
 const {throwIfNotType} = require('../utils');
@@ -45,8 +44,6 @@ const toISOString = dateString => dayjs(dateString).toISOString();
 
 /** Formats a date using dayjs's conventions: https://day.js.org/docs/en/display/format */
 const formatDate = (date, format) => dayjs(date).format(format);
-
-const minifyCss = code => new CleanCSS({}).minify(code).styles;
 
 const minifyJs = async (code, ...rest) => {
   const callback = rest.pop();
@@ -129,7 +126,6 @@ module.exports = {
   formatDate,
   toAbsoluteUrl,
   stripHtml,
-  minifyCss,
   minifyJs,
   mdInline,
   splitlines
