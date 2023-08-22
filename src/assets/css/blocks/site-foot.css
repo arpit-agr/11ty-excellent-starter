@@ -2,11 +2,16 @@
   --stack-space: auto;
 
   a {
+    display: inline-flex;
     padding-block: var(--nav-link-padding-block);
-    text-decoration: none;
   }
 }
 
 .site-foot__inner {
-  --cluster-space: var(--gutter);
+  --cluster-space: 0 var(--gutter);
+  --cluster-horizontal-alignment: space-between;
+
+  & ul {
+    --cluster-horizontal-alignment: flex-start;
+  }
 }
