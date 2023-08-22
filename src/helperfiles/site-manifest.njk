@@ -4,9 +4,9 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 {
-  "name": "{{ meta.siteName }} - {{ meta.siteDescription }}",
-  "short_name": "{{ meta.siteName }}",
-  "start_url": "{{ meta.url }}",
+  "name": "{{ site.siteName }} - {{ site.siteDescription }}",
+  "short_name": "{{ site.siteName }}",
+  "start_url": "{{ site.url }}",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -25,7 +25,7 @@ excludeFromSitemap: true
       "purpose": "maskable"
     }
   ],
-  "theme_color": "{{ meta.themeColor }}",
-  "background_color": "{{ meta.themeBgColor }}",
+  "theme_color": "{{ designTokens.colors.items[0].value }}",
+  "background_color": "{{ designTokens.colors.items[1].value }}",
   "display": "standalone"
 }

@@ -1,5 +1,5 @@
 ---
-permalink: /sitemap.xml
+permalink: false #/sitemap.xml
 eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
@@ -13,7 +13,7 @@ excludeFromSitemap: true
   {% endif %}
 
     <url>
-        <loc>{{ meta.url }}{{ page.url }}</loc>
+        <loc>{{ site.url }}{{ page.url }}</loc>
         <lastmod>{{ lastmod | toIsoString }}</lastmod>
     </url>
     {% endif %}

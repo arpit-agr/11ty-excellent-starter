@@ -1,22 +1,22 @@
 ---
-permalink: /feed.xml
+permalink: false #/feed.xml
 eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ meta.url }}/">
-  <title>{{ meta.blog.name }}</title>
-  <subtitle>{{ meta.blog.description }}</subtitle>
-  <link href="{{ meta.url }}/feed.xml" rel="self" />
-  <link href="{{ meta.url }}/" />
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ site.url }}/">
+  <title>{{ site.blog.name }}</title>
+  <subtitle>{{ site.blog.description }}</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self" />
+  <link href="{{ site.url }}/" />
   {% set postslist = collections.posts %}
   <updated>{{ postslist | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ meta.url }}/</id>
+  <id>{{ site.url }}/</id>
   <author>
-    <name>{{ meta.author }}</name>
-    <email>{{ meta.authorEmail }}</email>
+    <name>{{ site.author }}</name>
+    <email>{{ site.authorEmail }}</email>
   </author>
-  {%- for post in postslist %} {%- set absolutePostUrl = post.url | absoluteUrl(meta.url)
+  {%- for post in postslist %} {%- set absolutePostUrl = post.url | absoluteUrl(site.url)
   %}
   <entry>
     <title>{{ post.data.title }}</title>
