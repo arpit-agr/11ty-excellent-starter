@@ -1,6 +1,6 @@
 const liteYoutube = (id, label) => {
   return `
-  <lite-youtube videoid="${id}">
+  <lite-youtube videoid="${id}" posterquality="maxresdefault">
     <a
       class="lite-youtube-fallback stack"
       href="https://www.youtube.com/watch?v=${id}"
