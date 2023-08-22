@@ -1,3 +1,20 @@
-.youtube-embed {
+lite-youtube {
+  /* Web Components display inline by default  */
+  display: block;
+}
+
+.lite-youtube-fallback {
+  --stack-vertical-alignment: center;
+  --stack-horizontal-alignment: center;
+
+  padding: 1em;
   aspect-ratio: 16 / 9;
+  background-color: var(--clr-n-text-contrast);
+  color: var(--clr-surface);
+  -webkit-font-smoothing: antialiased;
+
+  & svg {
+    inline-size: var(--space-m-l);
+    block-size: var(--space-m-l);
+  }
 }

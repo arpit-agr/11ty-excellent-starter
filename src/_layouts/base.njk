@@ -74,8 +74,9 @@
     {% if youtube %}
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.4.0/lite-youtube.min.js"
-    ></script>
+        src="/assets/scripts/lite-youtube.js?{{ assetHash }}"
+      >
+      </script>
     {% endif %}
   </body>
 </html>
