@@ -1,7 +1,7 @@
 /* Global variables */
 :root {
   --gutter: var(--space-s-m);
-  --border-radius: 0.5rem;
+  --nav-link-padding-block: var(--space-xs-s);
   --transition-base: 250ms ease;
   --transition-movement: 200ms linear;
   --transition-fade: 200ms ease;
