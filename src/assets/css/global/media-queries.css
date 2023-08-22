@@ -1,0 +1,11 @@
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --motionNotOK (prefers-reduced-motion: reduce);
+
+@custom-media --OSdark (prefers-color-scheme: dark);
+@custom-media --OSlight (prefers-color-scheme: light);
+
+@custom-media --sm-n-above (min-width: 30em);
+@custom-media --md-n-above (min-width: 48em);
+@custom-media --lg-n-above (min-width: 64em);
+@custom-media --xl-n-above (min-width: 90em);
+@custom-media --2xl-n-above (min-width: 120em);
