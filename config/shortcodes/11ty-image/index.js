@@ -6,7 +6,8 @@ const imageShortcode = async (
   src,
   alt,
   caption,
-  sizes = '(min-width: 55rem) 820px, 100vw'
+  sizes = '(min-width: 55rem) 820px, 100vw',
+  loading = 'lazy'
 ) => {
   if (!alt) {
     throw new Error(`Missing \`alt\` on myImage from: ${src}`);
@@ -48,12 +49,11 @@ const imageShortcode = async (
           })
           .join('\n')}
           <img
-            src="/assets/images/image-placeholder.png"
-            data-src="${lowsrc.url}"
+            src="${lowsrc.url}"
             width="${lowsrc.width}"
             height="${lowsrc.height}"
             alt="${alt}"
-            loading = 'lazy'
+            loading = "${loading}"
             decoding="async">
         </picture>
         ${caption ? `<figcaption>${caption}</figcaption>` : ``}
