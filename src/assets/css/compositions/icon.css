@@ -5,9 +5,12 @@
 
 .icon {
   inline-size: 1.125em;
-  inline-size: 1cap;
   block-size: 1.125em;
-  block-size: 1cap;
+
+  @supports (height: 1.5cap) {
+    inline-size: 1.5cap;
+    block-size: 1.5cap;
+  }
 }
 
 .with-icon .icon {
