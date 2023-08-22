@@ -23,22 +23,16 @@ module.exports = {
     description:
       'Tell the word what you are writing about in your blog! It will show up on feed readers.'
   },
-  pagination: {
-    itemsPerPage: 20
-  },
   address: {
     // edit all presets or leave empty. They are being used in the pages for privacy.md and imprint.md
-    firm: 'Organization name',
-    street: '123 Main St.',
-    city: 'Ciudad',
-    state: 'Estado',
-    zip: '12345',
+    firm: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
     mobileDisplay: '+34 1234567',
     mobileCall: ' +341234567',
-    email: 'hola@yoursite.com',
+    email: 'support@example.com',
     cif: ''
-  },
-  menu: {
-    closedText: 'Menu'
   }
 };

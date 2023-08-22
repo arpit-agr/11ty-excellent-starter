@@ -1,42 +1,44 @@
 {% set activePage = page.url | url %}
 
-<footer class="site-foot | mt-l-xl text-min-1" role="contentinfo">
-  <div class="site-foot__inner | cluster | wrapper" data-split='2'>
+<footer class="site-foot | pt-l-xl text-min-1" role="contentinfo">
+  <div class="site-foot__inner | cluster | wrapper">
     
     <p>&copy; {% year %}</p>
 
-    <nav class="cluster" aria-label="Footer">
-
+    <nav aria-label="Footer">
+      <ul class="cluster" role="list">
       {% for item in navigation.bottom %}
-
-      <a
-        href="{{ item.url }}"
-        {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
-      >
-        {{ item.text }}
-      </a>
-
+        <li>
+          <a
+            href="{{ item.url }}"
+            {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+          >
+            {{ item.text }}
+          </a>
+        </li>
       {% endfor %}
-    </nav>
 
-    <nav class="cluster" aria-label="Social links">
       {% for item in social %}
-
-      {% if item.platform == "rss" %}
-        <a
-          href="{{ site.url }}/{{ locale }}{{ item.url }}"
-          rel="alternate"
-          type="application/rss+xml"
-        >
-      {% else %}
-        <a class="with-icon" href="{{ item.url }}" rel="me">
-      {% endif %}
-          {% include 'icons/social-' + item.icon %}
-          {{ item.platform }}
-        </a>
+        <li>
+          {% if item.platform == "rss" %}
+            <a
+              href="{{ site.url }}/{{ locale }}{{ item.url }}"
+              rel="alternate"
+              type="application/rss+xml"
+            >
+              {% include 'icons/social-' + item.icon %}
+              {{ item.platform }}
+            </a>
+          {% else %}
+            <a class="with-icon" href="{{ item.url }}" rel="me">
+              {% include 'icons/social-' + item.icon %}
+              {{ item.platform }}
+            </a>
+          {% endif %}
+        </li>
       {% endfor %}
-
-      </nav>
+      </ul>
+    </nav>
   </div>
 
 </footer>
