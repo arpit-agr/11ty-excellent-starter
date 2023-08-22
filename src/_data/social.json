@@ -1,6 +1,6 @@
 [
   {
-    "platform": "rss",
+    "platform": "RSS",
     "url": "feed.xml",
     "icon": "rss.svg"
   }

@@ -44,6 +44,7 @@ const {slugifyString} = require('./config/utils');
 const {escape} = require('lodash');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const bundlerPlugin = require('@11ty/eleventy-plugin-bundle');
+const lucideIcons = require('@grimlink/eleventy-plugin-lucide-icons');
 
 module.exports = eleventyConfig => {
   eleventyConfig.setQuietMode(true);
@@ -104,6 +105,14 @@ module.exports = eleventyConfig => {
   eleventyConfig.setLibrary('md', markdownLib);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(bundlerPlugin);
+  eleventyConfig.addPlugin(lucideIcons, {
+    'class': 'icon',
+    'width': '1.125em',
+    'height': '1.125em',
+    'stroke': 'currentColor',
+    'stroke-width': 2,
+    'aria-hidden': 'true'
+  });
 
   // 	--------------------- Passthrough File Copy -----------------------
   // same path
