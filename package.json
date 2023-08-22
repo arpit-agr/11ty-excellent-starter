@@ -10,10 +10,10 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "dev:11ty": "eleventy --serve --watch",
+    "dev:11ty": "eleventy --serve",
     "build:11ty": "eleventy",
-    "start": "run-p dev:*",
-    "build": "run-s clean build:*"
+    "start": "NODE_ENV=development run-p dev:*",
+    "build": "NODE_ENV=production run-s clean build:*"
   },
   "keywords": [],
   "repository": {
