@@ -1,0 +1,14 @@
+{
+  "title": "Letter Spacing",
+  "description": "Sets the horizontal spacing behavior between text characters",
+  "items": [
+    {
+      "name": "S",
+      "value": "-0.05ch"
+    },
+    {
+      "name": "M",
+      "value": "-0.025ch"
+    }
+  ]
+}
