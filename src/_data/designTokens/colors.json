@@ -1,0 +1,29 @@
+{
+  "title": "Colors",
+  "description": "Hex color codes that can be shared, cross-platform. They can be converted at point of usage, such as HSL for web or CMYK for print.",
+  "items": [
+    {"name": "neutral-0", "value": "#fff"},
+    {"name": "neutral-1", "value": "#f8fafc"},
+    {"name": "neutral-2", "value": "#f1f5f9"},
+    {"name": "neutral-3", "value": "#e2e8f0"},
+    {"name": "neutral-4", "value": "#cbd5e1"},
+    {"name": "neutral-5", "value": "#94a3b8"},
+    {"name": "neutral-6", "value": "#64748b"},
+    {"name": "neutral-7", "value": "#475569"},
+    {"name": "neutral-8", "value": "#334155"},
+    {"name": "neutral-9", "value": "#1e293b"},
+    {"name": "neutral-10", "value": "#0f172a"},
+    {"name": "neutral-11", "value": "#020617"},
+    {"name": "primary-1", "value": "#ecfeff"},
+    {"name": "primary-2", "value": "#cffafe"},
+    {"name": "primary-3", "value": "#a5f3fc"},
+    {"name": "primary-4", "value": "#67e8f9"},
+    {"name": "primary-5", "value": "#22d3ee"},
+    {"name": "primary-6", "value": "#06b6d4"},
+    {"name": "primary-7", "value": "#0891b2"},
+    {"name": "primary-8", "value": "#0e7490"},
+    {"name": "primary-9", "value": "#155e75"},
+    {"name": "primary-10", "value": "#164e63"},
+    {"name": "primary-11", "value": "#083344"}
+  ]
+}
