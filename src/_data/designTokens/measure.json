@@ -1,0 +1,14 @@
+{
+	"title": "Measure",
+	"description": "There’s no reason why any line of text should become too lengthy. A reasonable measure is critical for the comfortable scanning of successive lines.",
+	"items": [
+		{
+			"name": "Body",
+			"value": "65ch"
+		},
+		{
+			"name": "Headings",
+			"value": "24ch"
+		}
+	]
+}
