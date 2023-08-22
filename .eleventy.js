@@ -13,9 +13,6 @@
  *  @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig
  */
 
-// get package.json
-const packageVersion = require('./package.json').version;
-
 // module import filters
 const {
   limit,
@@ -25,36 +22,33 @@ const {
   formatDate,
   toAbsoluteUrl,
   stripHtml,
-  minifyCss,
   minifyJs,
   mdInline,
   splitlines
 } = require('./config/filters/index.js');
 
 // module import shortcodes
-const {
-  imageShortcodePlaceholder,
-  includeRaw,
-  liteYoutube
-} = require('./config/shortcodes/index.js');
+const {imageShortcode, includeRaw, liteYoutube} = require('./config/shortcodes/index.js');
 
 // module import collections
-const {getAllPosts} = require('./config/collections/index.js');
+const {getAllPosts, getAllPages} = require('./config/collections/index.js');
 
 // module import events
 const {svgToJpeg} = require('./config/events/index.js');
 
 // plugins
+const directoryOutputPlugin = require('@11ty/eleventy-plugin-directory-output');
 const markdownLib = require('./config/plugins/markdown.js');
 const {EleventyRenderPlugin} = require('@11ty/eleventy');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const {slugifyString} = require('./config/utils');
 const {escape} = require('lodash');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
-const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const bundlerPlugin = require('@11ty/eleventy-plugin-bundle');
 
 module.exports = eleventyConfig => {
+  eleventyConfig.setQuietMode(true);
+  eleventyConfig.addPlugin(directoryOutputPlugin);
+
   // 	--------------------- Custom Watch Targets -----------------------
   eleventyConfig.addWatchTarget('./src/assets');
   eleventyConfig.addWatchTarget('./utils/*.js');
@@ -78,7 +72,6 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter('slugify', slugifyString);
   eleventyConfig.addFilter('toJson', JSON.stringify);
   eleventyConfig.addFilter('fromJson', JSON.parse);
-  eleventyConfig.addFilter('cssmin', minifyCss);
   eleventyConfig.addNunjucksAsyncFilter('jsmin', minifyJs);
   eleventyConfig.addFilter('md', mdInline);
   eleventyConfig.addFilter('splitlines', splitlines);
@@ -87,11 +80,10 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter('entries', Object.entries);
 
   // 	--------------------- Custom shortcodes ---------------------
-  eleventyConfig.addNunjucksAsyncShortcode('imagePlaceholder', imageShortcodePlaceholder);
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
   eleventyConfig.addShortcode('youtube', liteYoutube);
   eleventyConfig.addShortcode('include_raw', includeRaw);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`); // current year, stephanie eckles
-  eleventyConfig.addShortcode('packageVersion', () => `v${packageVersion}`);
 
   // 	--------------------- Custom transforms ---------------------
   eleventyConfig.addPlugin(require('./config/transforms/html-config.js'));
@@ -102,16 +94,15 @@ module.exports = eleventyConfig => {
 
   // 	--------------------- Custom collections -----------------------
   eleventyConfig.addCollection('posts', getAllPosts);
+  eleventyConfig.addCollection('pages', getAllPages);
 
   // 	--------------------- Events ---------------------
   eleventyConfig.on('afterBuild', svgToJpeg);
 
   // 	--------------------- Plugins ---------------------
   eleventyConfig.addPlugin(EleventyRenderPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.setLibrary('md', markdownLib);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(bundlerPlugin);
 
   // 	--------------------- Passthrough File Copy -----------------------
