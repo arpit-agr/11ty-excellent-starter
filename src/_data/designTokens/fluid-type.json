@@ -1,0 +1,49 @@
+{
+  "title": "Text Sizes",
+  "description": "Font size values in px for the type scale at the min and max viewport widths",
+  "meta": {
+    "scaleGenerator": "https://utopia.fyi/type/calculator?c=320,18,1.2,1360,20,1.333,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12"
+  },
+  "items": [
+    {
+      "name": "6",
+      "min": 53.75,
+      "max": 112.2
+    },
+    {
+      "name": "5",
+      "min": 44.79,
+      "max": 84.17
+    },
+    {
+      "name": "4",
+      "min": 37.32,
+      "max": 63.15
+    },
+    {
+      "name": "3",
+      "min": 31.1,
+      "max": 47.37
+    },
+    {
+      "name": "2",
+      "min": 25.92,
+      "max": 35.54
+    },
+    {
+      "name": "1",
+      "min": 21.6,
+      "max": 26.66
+    },
+    {
+      "name": "0",
+      "min": 18.0,
+      "max": 20.0
+    },
+    {
+      "name": "00",
+      "min": 14.99,
+      "max": 15
+    }
+  ]
+}
