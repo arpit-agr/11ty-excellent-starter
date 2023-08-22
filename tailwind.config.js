@@ -4,38 +4,49 @@ const plugin = require('tailwindcss/plugin');
 const postcss = require('postcss');
 const postcssJs = require('postcss-js');
 
-const clampGenerator = require('./src/assets/css-utils/clamp-generator.js');
-const tokensToTailwind = require('./src/assets/css-utils/tokens-to-tailwind.js');
+const clampGenerator = require('./config/css-utils/clamp-generator.js');
+const tokensToTailwind = require('./config/css-utils/tokens-to-tailwind.js');
 
 // Raw design tokens
-const colorTokens = require('./src/assets/design-tokens/colors.json');
-const fontTokens = require('./src/assets/design-tokens/fonts.json');
-const spacingTokens = require('./src/assets/design-tokens/spacing.json');
-const textSizeTokens = require('./src/assets/design-tokens/text-sizes.json');
+const colorTokens = require('./src/_data/designtokens/colors.json');
+const fontFamilyTokens = require('./src/_data/designtokens/font-family.json');
+const spacingTokens = require('./src/_data/designtokens/fluid-space.json');
+const fontSizeTokens = require('./src/_data/designtokens/fluid-type.json');
+
+const fontWeightTokens = require('./src/_data/designtokens/font-weight.json');
+const leadingTokens = require('./src/_data/designtokens/leading.json');
+const trackingTokens = require('./src/_data/designtokens/tracking.json');
+const measureTokens = require('./src/_data/designtokens/measure.json');
 
 // Process design tokens
 const colors = tokensToTailwind(colorTokens.items);
-const fontFamily = tokensToTailwind(fontTokens.items);
-const fontSize = tokensToTailwind(clampGenerator(textSizeTokens.items));
+const fontFamily = tokensToTailwind(fontFamilyTokens.items);
+const fontSize = tokensToTailwind(clampGenerator(fontSizeTokens.items));
 const spacing = tokensToTailwind(clampGenerator(spacingTokens.items));
+
+const fontWeight = tokensToTailwind(fontWeightTokens.items);
+const leading = tokensToTailwind(leadingTokens.items);
+const tracking = tokensToTailwind(trackingTokens.items);
+const measure = tokensToTailwind(measureTokens.items);
 
 module.exports = {
   content: ['./src/**/*.{html,js,jsx,mdx,njk,twig,vue}'],
   presets: [],
   theme: {
     screens: {
-      md: '50em',
-      lg: '80em'
+      sm: '30em',
+      md: '48em',
+      lg: '64em',
+      xl: '90em'
     },
     colors,
     spacing,
     fontSize,
     fontFamily,
-    fontWeight: {
-      normal: 400,
-      bold: 700,
-      black: 800
-    },
+    fontWeight,
+    leading,
+    tracking,
+    measure,
     backgroundColor: ({theme}) => theme('colors'),
     textColor: ({theme}) => theme('colors'),
     margin: ({theme}) => ({
@@ -77,8 +88,12 @@ module.exports = {
       const groups = [
         {key: 'colors', prefix: 'color'},
         {key: 'spacing', prefix: 'space'},
-        {key: 'fontSize', prefix: 'size'},
-        {key: 'fontFamily', prefix: 'font'}
+        {key: 'fontSize', prefix: 'step'},
+        {key: 'fontFamily', prefix: 'font'},
+        {key: 'fontWeight', prefix: 'weight'},
+        {key: 'leading', prefix: 'leading'},
+        {key: 'tracking', prefix: 'tracking'},
+        {key: 'measure', prefix: 'measure'}
       ];
 
       groups.forEach(({key, prefix}) => {
