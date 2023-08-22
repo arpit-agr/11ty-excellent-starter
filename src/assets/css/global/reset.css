@@ -35,13 +35,23 @@ html {
 }
 
 /* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
+:root {
+  --full-vh: 100vh;
+
+  @media (--motionOK) {
+    scroll-behavior: smooth;
+  }
+}
+
+@supports (height: 100svh) {
+  :root {
+    --full-vh: 100svh;
+  }
 }
 
 /* Set core body defaults */
 body {
-  min-block-size: 100vh;
+  min-block-size: var(--full-vh);
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
