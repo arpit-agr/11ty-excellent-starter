@@ -1,0 +1,26 @@
+{
+  "title": "Leading or Line Height",
+  "description": "Used to set the distance between lines of text",
+  "items": [
+    {
+      "name": "flat",
+      "value": "1"
+    },
+    {
+      "name": "fine",
+      "value": "1.2"
+    },
+    {
+      "name": "medium",
+      "value": "1.4"
+    },
+    {
+      "name": "standard",
+      "value": "1.6"
+    },
+    {
+      "name": "loose",
+      "value": "1.8"
+    }
+  ]
+}
