@@ -12,7 +12,7 @@ youtube: true
 
 This (opiniated) [Eleventy](https://www.11ty.dev/) starter is based on [Andy Bell's](https://mastodon.social/@andy@bell.bz) talk 'Be the browser’s mentor, not its micromanager' and it's companion website buildexcellentwebsit.es.
 
-{% image "./src/assets/images/opengraph-default.jpg", "This is a test", "The preview for social media", "(min-width:30em)  50vw, 100vw", "eager" %}
+{% image "./src/assets/images/social-share.png", "This is a test", "The preview for social media", "(min-width:30em)  50vw, 100vw", "eager" %}
 
 ### Heading 3
 
