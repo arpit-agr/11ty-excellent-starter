@@ -1,0 +1,20 @@
+/*
+Why is the width and height is set to 1px and not 0?
+
+As it turns out, links are not focusable in Safari if they have 0 dimensions. Adding 1px padding, border, or width and height fixes the issue.
+
+Source: https://www.matuzo.at/blog/2023/zero-width-height-skip/
+*/
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,11 +1,12 @@
-.cluster > * {
+.cluster {
   display: flex;
   flex-wrap: wrap;
-  /* ↓ multiply by -1 to negate the halved value */
-  margin: calc(var(--space-s-l) / 2 * -1);
+  gap: var(--cluster-space, 1rem);
+
+  justify-content: var(--cluster-horizontal-alignment, flex-start);
+  align-items: var(--cluster-vertical-alignment, center);
 }
 
-.cluster > * > * {
-  /* ↓ half the value, because of the 'doubling up' */
-  margin: calc(var(--space-s-l) / 2);
+[data-split='2'] > :nth-child(2) {
+  margin-inline-start: auto;
 }

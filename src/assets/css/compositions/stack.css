@@ -1,0 +1,14 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--stack-vertical-alignment, flex-start);
+  align-items: var(--stack-horizontal-alignment, flex-start);
+}
+
+.stack > * {
+  margin-block: 0;
+}
+
+.stack > * + * {
+  margin-block-start: var(--stack-space, 1em);
+}

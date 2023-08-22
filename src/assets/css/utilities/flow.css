@@ -5,4 +5,8 @@ Info about this implementation: https://piccalil.li/quick-tip/flow-utility/
 */
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
+
+  @supports (margin: 1lh) {
+    margin-block-start: var(--flow-space, 1lh);
+  }
 }
