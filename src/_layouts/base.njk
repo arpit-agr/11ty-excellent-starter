@@ -1,7 +1,7 @@
 {% set assetHash = global.random() %}
 
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}">
+<html lang="{{ site.lang }}">
   <head>
     <!-- charset/http-equiv/viewport -->
     <meta charset="UTF-8" />
@@ -10,34 +10,28 @@
 
     <!-- title -->
     <title>
-      {% if seo.title %} {{ seo.title }}
-      {% elif title %}
-      {{ title }}
-      {% else %}
-      {{ meta.siteName }}
-      {% endif %}
+      {% if seo.title %}{{ seo.title }}
+      {% elif title %}{{ title }}
+      {% else %}{{ site.siteName }}{% endif %}
     </title>
 
     <link rel="stylesheet" href="/assets/css/global.css?{{ assetHash }}" />
 
+    {# https://www.matuzo.at/blog/html-boilerplate/ #}
+    <script type="module">
+      document.documentElement.classList.add('has-js');
+    </script>
+
     <!-- preloads -->
     <link
       rel="preload"
-      href="/assets/fonts/inter/inter-v7-latin-500.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+      href="/assets/scripts/app.js?{{ assetHash }}"
+      as="script"
+      fetchpriority="high"
+    >
     <link
       rel="preload"
-      href="/assets/fonts/inter/inter-v7-latin-700.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/assets/fonts/redhat/red-hat-display-v7-latin-900.woff2"
+      href="/assets/fonts/inter-partial-subset.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -47,36 +41,35 @@
     {% if preloads -%}
     <!-- prettier-ignore -->
     <link rel="preload"
-            href="{{ preloads.href }}"
-            as="{{ preloads.as }}"
-            {% if preloads.type %}type={{ preloads.type }}{% endif %}{% if preloads.imagesrcset %}imagesrcset="{{ preloads.imagesrcset }}" {% endif %}
-            {% if preloads.crossorigin %}crossorigin{% endif %} />
+      href="{{ preloads.href }}"
+      as="{{ preloads.as }}"
+      {% if preloads.type %}type={{ preloads.type }}{% endif %}{% if preloads.imagesrcset %}imagesrcset="{{ preloads.imagesrcset }}" {% endif %}
+      {% if preloads.crossorigin %}crossorigin{% endif %} />
     {% endif %}
-
-    <!-- defered js  -->
-    <script type="module" src="/assets/scripts/app.js?{{ assetHash }}" defer></script>
 
     <!-- everything else: meta tags, icons, open graph etc.  -->
     {% include "partials/meta-info.njk" %}
   </head>
 
-  <body>
+  <body class="stack">
     <!-- header -->
     {% include "partials/header.njk" %}
 
     <!-- content slot -->
-    <main id="main" class="flow">{{ content | safe }}</main>
+    <main id="main">
+      <div class="wrapper | flow">
+        {{ content | safe }}
+      </div>
+    </main>
 
     <!-- footer -->
     {% include "partials/footer.njk" %}
 
-    <!-- youtube if actvated in yaml -->
+    <!-- defered js  -->
+    <script src="/assets/scripts/app.js?{{ assetHash }}" defer></script>
     {% if youtube %}
-    <script
-      type="module"
-        src="/assets/scripts/lite-youtube.js?{{ assetHash }}"
-      >
-      </script>
+    <!-- youtube if actvated in yaml -->
+      <script src="/assets/scripts/lite-youtube.js?{{ assetHash }}" defer></script>
     {% endif %}
   </body>
 </html>
