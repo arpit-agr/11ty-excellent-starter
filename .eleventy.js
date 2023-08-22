@@ -44,7 +44,7 @@ const {slugifyString} = require('./config/utils');
 const {escape} = require('lodash');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const bundlerPlugin = require('@11ty/eleventy-plugin-bundle');
-const lucideIcons = require('@grimlink/eleventy-plugin-lucide-icons');
+const lucideIcons = require('@grimlink/eleventy-plugin-lucide-icons'); // https://github.com/GrimLink/eleventy-plugin-lucide-icons
 
 module.exports = eleventyConfig => {
   eleventyConfig.setQuietMode(true);
