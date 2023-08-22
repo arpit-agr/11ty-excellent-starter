@@ -1,48 +1,44 @@
 {% set activePage = page.url | url %}
 
-<footer class="site-foot" role="contentinfo">
-  <div class="wrapper">
-    <div class="site-foot__inner">
-      <nav id="footernav" class="site-foot__inner text-step-0" aria-label="Footer">
+<footer class="site-foot | mt-l-xl text-min-1" role="contentinfo">
+  <div class="site-foot__inner | cluster | wrapper" data-split='2'>
+    
+    <p>&copy; {% year %}</p>
 
-        &copy; {% year %} <a href="/" {% if activePage === '/' %} aria-current="page" {% endif %}>{{ meta.siteName }} <small>{% packageVersion %}</small> </a>
+    <nav class="cluster" aria-label="Footer">
 
-        {% for item in navigation.bottom %}
+      {% for item in navigation.bottom %}
 
+      <a
+        href="{{ item.url }}"
+        {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+      >
+        {{ item.text }}
+      </a>
+
+      {% endfor %}
+    </nav>
+
+    <nav class="cluster" aria-label="Social links">
+      {% for item in social %}
+
+      {% if item.platform == "rss" %}
         <a
-          href="{{ item.url }}"
-          {{
-          helpers.getLinkActiveState(item.url,
-          page.url)
-          |
-          safe
-          }}
-          >{{ item.text }}</a
+          href="{{ site.url }}/{{ locale }}{{ item.url }}"
+          rel="alternate"
+          type="application/rss+xml"
         >
+      {% else %}
+        <a class="with-icon" href="{{ item.url }}" rel="me">
+      {% endif %}
+          {% include 'icons/social-' + item.icon %}
+          {{ item.platform }}
+        </a>
+      {% endfor %}
 
-        {% endfor %}
       </nav>
-
-      <nav id="social" class="site-foot__inner" aria-label="Social links">
-        {% for item in social %}
-
-        {% if item.platform == "rss" %}
-        <a href="{{ meta.url }}/{{ locale }}{{ item.url }}" rel="alternate" type="application/rss+xml">
-        {% else %}
-        <a href="{{ item.url }}" rel="me">
-          {% endif %}
-          <span class="sr-only">{{ item.platform }}</span>
-          <div aria-hidden="true">{% include 'icons/social-' + item.icon %}</div>
-          </a
-          >
-        {% endfor %}
-
-
-        </nav>
-    </div>
   </div>
 
-  <!-- lang menu -->
 </footer>
 
 
