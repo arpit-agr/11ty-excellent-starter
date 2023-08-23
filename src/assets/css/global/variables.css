@@ -12,6 +12,7 @@
   /* text */
   --color-neutral-primary-text: var(--color-slate-10);
   --color-neutral-secondary-text: var(--color-slate-9);
+  --color-neutral-tertiary-text: var(--color-slate-6);
   --color-brand-primary-text: var(--color-blue-8);
 
   /* bg */
@@ -19,18 +20,25 @@
   --color-primary-bg: var(--color-blue-1);
 
   /* border */
-  --color-neutral-border: var(--color-slate-6);
-  --color-primary-border: var(--color-blue-6);
+  --color-neutral-border: var(--color-slate-4);
+  --color-primary-border: var(--color-blue-4);
 
   @media (--OSdark) {
     -webkit-font-smoothing: antialiased;
 
+    /* text */
     --color-neutral-primary-text: var(--color-slate-2);
     --color-neutral-secondary-text: var(--color-slate-3);
+    --color-neutral-tertiary-text: var(--color-slate-5);
     --color-brand-primary-text: var(--color-blue-4);
 
+    /* bg */
     --color-neutral-bg: var(--color-slate-11);
     --color-primary-bg: var(--color-blue-11);
+
+    /* border */
+    --color-neutral-border: var(--color-slate-8);
+    --color-primary-border: var(--color-blue-8);
   }
 }
 

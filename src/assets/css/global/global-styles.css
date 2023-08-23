@@ -1,122 +1,147 @@
-/*
-  Global styles
+/* 
+  Global styles 
 
-  Low-specificity, global styles that apply to the whole
+  Low-specificity, global styles that apply to the whole 
   project: https://cube.fyi/css.html
 */
+
+* {
+  text-decoration-color: inherit;
+  text-decoration-thickness: 0.1ex;
+}
+
 body {
-  color: var(--color-dark);
-  background: var(--color-light);
-  font-size: var(--size-step-1);
+  --stack-horizontal-alignment: stretch;
+
+  background: var(--color-neutral-bg);
+  color: var(--color-neutral-secondary-text);
+
+  font-size: var(--step-0);
   font-family: var(--font-base);
-  line-height: 1.4;
-  letter-spacing: var(--tracking);
+  line-height: var(--leading-standard);
 }
 
 /* Base typesetting */
 h1,
 h2,
-h3 {
-  line-height: 1;
-  letter-spacing: var(--tracking-s);
+h3,
+.heading-wrapper {
+  color: var(--color-neutral-primary-text);
   font-family: var(--font-display);
-}
 
-h1 {
-  font-size: var(--size-step-5);
-}
-
-h2 {
-  font-size: var(--size-step-4);
-}
-
-h3 {
-  font-size: var(--size-step-3);
-}
-
-/* Set line lengths */
-p,
-li,
-blockquote:not([class]) {
-  max-inline-size: 50ch;
+  @supports (font-variation-settings: 'wght' 400) {
+    font-variation-settings: 'wght' var(--font-weight, var(--weight-semi-bold));
+  }
 }
 
 h1,
-h2,
-h3 {
-  max-inline-size: 20ch;
+h2 {
+  letter-spacing: var(--tracking-s);
 }
 
-blockquote {
-  border-inline-start: 0.8rem solid var(--color-primary);
-  padding: var(--space-m-l);
-  font-size: var(--size-step-2);
+h2,
+h3,
+.heading-wrapper:has(h2),
+.heading-wrapper:has(h3) {
+  line-height: var(--leading-fine);
+}
+
+h1 {
+  font-size: var(--step-6);
+  line-height: var(--leading-flat);
+}
+
+h2,
+.heading-wrapper:has(h2) {
+  font-size: var(--step-3);
+}
+
+h3,
+.heading-wrapper:has(h3) {
+  font-size: var(--step-2);
+}
+
+h3 {
+  letter-spacing: var(--tracking-m);
+}
+
+/* Set line lengths */
+h1,
+h2,
+h3 {
+  max-inline-size: var(--measure-headings);
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption,
+blockquote:not([class]) {
+  max-inline-size: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/* More generic elements */
+figcaption {
+  --flow-space: var(--space-3xs-2xs);
+
+  color: var(--color-neutral-tertiary-text);
+  font-size: var(--step-min-1);
+  line-height: var(--leading-medium);
 }
 
 blockquote > * + * {
-  margin-block-start: var(--space-m-l);
+  margin-block-start: 1em;
 }
 
-blockquote :last-child {
-  font-family: var(--font-base);
+blockquote:not([class]) {
+  padding: 1em;
+  border-inline-start: 0.5ch solid var(--color-neutral-border);
+  /* font-size: var(--step-1);
+  font-family: var(--font-serif);
+  line-height: var(--leading-medium);
+  letter-spacing: var(--tracking-m); */
+}
+
+/* Markdown blockquote:not([class])s aren't ideal */
+blockquote:not([class]) cite {
   font-style: normal;
-  font-size: var(--size-step-1);
-}
-
-svg {
-  block-size: 2ex;
-  inline-size: auto;
-  flex: none;
-}
-
-[role='list'] {
-  padding: 0;
+  /* font-family: var(--font-base); */
+  /* font-size: var(--step-0); */
+  /* letter-spacing: normal; */
 }
 
 /* Base interactive elements */
+a,
+button {
+  color: var(--color-brand-primary-text);
+}
+
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
 a {
-  color: currentcolor;
+  text-underline-offset: min(0.2em, 4px);
 }
 
 a:hover {
-  text-decoration: none;
-}
-
-:focus {
-  outline: 3px solid;
-  outline-offset: 0.3ch;
+  text-decoration-thickness: 0.2ex;
 }
 
 :target {
-  scroll-margin-top: 2ex;
+  scroll-margin-top: 1em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-primary-text);
+  outline-offset: 2px;
+  border-radius: 1px;
+  /* text-decoration-color: transparent; */
 }
 
 main:focus {
   outline: none;
-}
-
-article [href^='http']:not([href*='eleventy-excellent.netlify.app'])::after {
-  display: inline-block;
-  inline-size: 1em;
-  block-size: 1em;
-  background-image: url('/assets/images/icn-external.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60% auto;
-  /* alternative text rules */
-  content: '(external link)';
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 1em; /* the width of the icon */
-}
-
-/* Base selection styles that invert whatever colours are rendered */
-::selection {
-  background: var(--color-primary);
-  color: var(--color-light);
-}
-
-.preload-transitions * {
-  transition: none !important;
 }
