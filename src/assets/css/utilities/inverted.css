@@ -1,0 +1,6 @@
+.inverted {
+  -webkit-font-smoothing: antialiased;
+
+  background-color: var(--color-neutral-primary-text);
+  color: var(--color-neutral-bg);
+}
