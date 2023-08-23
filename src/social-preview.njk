@@ -1,14 +1,14 @@
 ---
 # https://github.com/bnijenhuis/bnijenhuis-nl/blob/main/social-preview.njk
 pagination:
-  data: collections.posts
+  data: collections.pages
   size: 1
   alias: preview
 permalink: '/assets/images/social-preview/{{ preview.data.title | slugify }}-preview.svg'
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="1200" height="628" viewBox="0 0 1200 628" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<svg width="1200" height="630" viewBox="0 0 1200 630" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 >
   {% set titleInLines = preview.data.title | splitlines(16) %}
   {% set numberOfLines = titleInLines.length %}
@@ -25,11 +25,12 @@ eleventyExcludeFromCollections: true
   {% endif %}
 
   <!-- SVG background, generate your own on: https://app.haikei.app/  -->
-  <svg id="visual" viewBox="0 0 1200 628" width="1200" height="628" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="1200" height="628" fill="#F3F3F3"></rect><path d="M0 100L50 92.7C100 85.3 200 70.7 300 70.7C400 70.7 500 85.3 600 94.3C700 103.3 800 106.7 900 107.5C1000 108.3 1100 106.7 1150 105.8L1200 105L1200 0L1150 0C1100 0 1000 0 900 0C800 0 700 0 600 0C500 0 400 0 300 0C200 0 100 0 50 0L0 0Z" fill="#DD4462" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
+  {# <svg id="visual" viewBox="0 0 1200 628" width="1200" height="628" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="1200" height="628" fill="#F3F3F3"></rect><path d="M0 100L50 92.7C100 85.3 200 70.7 300 70.7C400 70.7 500 85.3 600 94.3C700 103.3 800 106.7 900 107.5C1000 108.3 1100 106.7 1150 105.8L1200 105L1200 0L1150 0C1100 0 1000 0 900 0C800 0 700 0 600 0C500 0 400 0 300 0C200 0 100 0 50 0L0 0Z" fill="#DD4462" stroke-linecap="round" stroke-linejoin="miter"></path></svg> #}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><path fill="#F3F3F3" d="M0 0h1200v630H0z"/><path fill="#DD4462" d="m0 100 50-7.3c50-7.4 150-22 250-22s200 14.6 300 23.6c100 9 200 12.4 300 13.2 100 .8 200-.8 250-1.7l50-.8V0H0Z"/></svg>
 
   <!-- date -->
-  <text
-    font-family="Redhat, Roboto, 'Helvetica Neue', sans-serif"
+  {# <text
+    font-family="system-ui, sans-serif"
     font-size="24"
     font-weight="bold"
     fill="#DD4462"
@@ -38,16 +39,16 @@ eleventyExcludeFromCollections: true
     <tspan x="160" y="{{ verticalStartingPoint - 120 }}">
       {{ preview.date | formatDate('DD / MM / YYYY') }}
     </tspan>
-  </text>
+  </text> #}
 
   <!-- title -->
   <text
     id="text"
-    font-family="Redhat, Roboto, 'Helvetica Neue', sans-serif"
+    font-family="Inter, system-ui, sans-serif"
     font-size="80"
     font-weight="900"
     fill="#333333"
-    letter-spacing="-3"
+    letter-spacing="-1"
   >
     {% for line in titleInLines %}
     <tspan x="160" y="{{ verticalStartingPoint - 20 + loop.index0 * 80 }}">
@@ -58,12 +59,11 @@ eleventyExcludeFromCollections: true
 
   <!-- sitename -->
   <text
-  font-family="Redhat, Roboto, 'Helvetica Neue', sans-serif"
+  font-family="Inter, system-ui, sans-serif"
     font-size="24"
     font-weight="bold"
     fill="#DD4462"
-    letter-spacing="-0.5"
   >
-    <tspan x="160" y="600">{{ meta.siteName }} · {{ meta.url | replace("https://", "") | replace("http://", "") }}</tspan>
+    <tspan x="160" y="600">{{ site.siteName }} · {{ site.url | replace("https://", "") | replace("http://", "") }}</tspan>
   </text>
 </svg>
