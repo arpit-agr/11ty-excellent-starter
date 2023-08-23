@@ -20,6 +20,6 @@ This (opiniated) [Eleventy](https://www.11ty.dev/) starter is based on [Andy Bel
 >
 > This way we can shape frontends that look good to everyone, regardless of device, connection speed or context.
 >
-> <cite>- Probaby someone famous</cite>
+> <cite>-- Probaby someone famous</cite>
 
 {% youtube "dQw4w9WgXcQ", "Never Gonna Give You Up" %}

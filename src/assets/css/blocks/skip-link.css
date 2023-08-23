@@ -4,9 +4,7 @@
   inset-block-start: var(--nav-link-padding-block);
   inset-inline-start: var(--gutter);
 
-  padding: var(--nav-link-padding-block) var(--gutter);
-  background-color: var(--clr-n-text);
-  color: var(--clr-surface);
+  padding: calc(1 / 2 * var(--nav-link-padding-block)) var(--gutter);
 
   opacity: 0;
   transform: translateY(-100%);

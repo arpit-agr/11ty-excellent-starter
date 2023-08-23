@@ -1,6 +1,4 @@
 lite-youtube {
-  --flow-space: var(--space-m-l);
-
   /* Web Components display inline by default  */
   display: block;
 }
@@ -10,10 +8,9 @@ lite-youtube {
   --stack-horizontal-alignment: center;
 
   padding: 1em;
+  background-color: var(--color-primary-bg);
   aspect-ratio: 16 / 9;
-  background-color: var(--clr-n-text-contrast);
-  color: var(--clr-surface);
-  -webkit-font-smoothing: antialiased;
+  outline: solid;
 
   & svg {
     inline-size: var(--space-m-l);

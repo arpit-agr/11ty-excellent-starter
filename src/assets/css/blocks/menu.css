@@ -137,5 +137,5 @@ body:has(.site-nav-button[aria-expanded='true']) {
 }
 
 .site-head__inner:has(.site-nav-button[aria-expanded='true']) {
-  border-block-end: 1px solid var(--color-slate-3);
+  border-block-end: var(--header-border) solid var(--color-slate-3);
 }
