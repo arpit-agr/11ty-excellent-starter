@@ -15,3 +15,6 @@ src/_includes/scripts
 # macOS related files
 .DS_Store
 Thumbs.db
+
+# TODO file
+/TODO.md
