@@ -6,21 +6,21 @@
       "@type": "WebPage"
     },
     "isPartOf": {
-      "@id": "{{ meta.url }}#website"
+      "@id": "{{ site.url }}#website"
     },
     "@id": "{{ url }}",
-    "headline": "{{ title or meta.siteName }}",
-    "description": "{{ seo.description or description or meta.siteDescription }}",
-    "image": "{{ meta.url }}{% if seo.image %}/assets/images/{{ seo.image }}{% else %}{{ meta.meta_data.opengraph_default }}{% endif %}",
-    "inLanguage": "{{ meta.locale }}",
+    "headline": "{{ title or site.siteName }}",
+    "description": "{{ seo.description or description or site.siteDescription }}",
+    "image": "{{ site.url }}{% if seo.image %}/assets/images/{{ seo.image }}{% else %}{{ site.meta_data.opengraph_default }}{% endif %}",
+    "inLanguage": "{{ site.locale }}",
     "publisher": {
-      "@type": "{{ meta.siteType }}",
-      "name": "{{ meta.author }}",
-      "url": "{{ meta.url }}"
+      "@type": "{{ site.siteType }}",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}"
     },
     "author": {
       "@type": "Person",
-      "name": "{{ meta.author }}"
+      "name": "{{ site.author }}"
     },
     "datePublished": "{{ date | toIsoString }}"
   }
