@@ -68,6 +68,7 @@
     --nav-list-container-overflow: visible;
     --nav-list-container-z-index: unset;
     --nav-list-container-opacity: 1;
+    --nav-list-container-translate: none;
     --nav-list-container-visibility: visible;
     --nav-list-container-pointer-events: auto;
   }
@@ -75,15 +76,21 @@
 
 .site-nav-button[aria-expanded='false'] + .site-nav-list-container {
   opacity: var(--nav-list-container-opacity, 0);
+  translate: var(--nav-list-container-translate, 66% 0);
   visibility: var(--nav-list-container-visibility, hidden);
   pointer-events: var(--nav-list-container-pointer-events, none);
 }
 
 /* animates ul only when opening to avoid flash on page load, svg always */
 @media (--motionOK) {
-  .site-nav-button[aria-expanded='true'] + .site-nav-list-container,
-  .site-nav-button line {
-    transition: all var(--transition-fade);
+  .site-nav-button[aria-expanded='true'] + .site-nav-list-container {
+    /* transition: var(--transition-fade); */
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .site-nav-button line:nth-child(2),
+  .site-nav-button line:nth-child(3) {
+    transition: var(--transition-movement);
   }
 }
 
@@ -103,11 +110,11 @@
   justify-content: end;
 
   min-block-size: var(--nav-list-height, var(--full-vh));
-  padding: var(--nav-list-padding, var(--space-xl) var(--space-s) var(--space-l-xl));
+  padding: var(--nav-list-padding, var(--space-xl) var(--gutter) var(--space-l-xl));
   background: var(--nav-list-background, var(--color-neutral-bg));
 
   /* overflow: auto; */
-  text-align: end;
+  /* text-align: end; */
 
   @media (--sm-n-above) {
     --nav-list-layout: row;

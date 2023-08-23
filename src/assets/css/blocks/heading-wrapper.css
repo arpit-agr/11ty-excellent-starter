@@ -8,7 +8,7 @@
 .anchor-link {
   vertical-align: middle;
   opacity: 0;
-  transition: var(--transition-fade);
+  transition: opacity var(--transition-fade);
 }
 
 .heading-wrapper:where(:hover, :focus-within) .anchor-link {
