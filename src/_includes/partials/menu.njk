@@ -4,9 +4,11 @@
       {% for item in navigation.top %}
       <li>
         <a
+          class="with-icon"
           href="{{ item.url }}"
           {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
         >
+          {% lucide item.icon %}
           {{ item.text }}
         </a>
       </li>
