@@ -1,34 +1,48 @@
-<nav id="mainnav" class="navbar" aria-label="Main">
-  <ul>
-    {% for item in navigation.top %}
-    <li>
-      <a
-        class="nav"
-        href="{{ item.url }}"
-        {{
-        helpers.getLinkActiveState(item.url,
-        page.url)
-        |
-        safe
-        }}
-        >{{ item.text }}</a
-      >
-    </li>
-    {% endfor %}
-  </ul>
+<nav id="main-nav" class="site-nav" aria-label="Primary">
+  <div class="site-nav-list-container">
+    <ul role="list">
+      {% for item in navigation.top %}
+      <li>
+        <a
+          href="{{ item.url }}"
+          {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+        >
+          {{ item.text }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </nav>
 
 <!--  template element holding a button that needs to be injected when JavaScript is finally available. based on an article by Manuel Matuzovic, https://web.dev/website-navigation/, see also https://kittygiraudel.com/2022/09/30/templating-in-html/ -->
 
 <template id="burger-template">
-  <button type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
-    <span>Menu</span>
-    <svg width="24" height="24" aria-hidden="true">
-      <path
-        fill-rule="evenodd"
-        d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
-        clip-rule="evenodd"
-      />
+  <button
+    class="site-nav-button | with-icon"
+    type="button"
+    aria-expanded="false"
+    aria-label="Menu"
+    aria-controls="main-nav"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.125em"
+      height="1.125em"
+      class="icon"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="4" x2="20" y1="6" y2="6"/>
+      <line x1="4" x2="20" y1="12" y2="12"/>
+      <line x1="4" x2="20" y1="12" y2="12"/>
+      <line x1="4" x2="20" y1="18" y2="18"/>
     </svg>
+    Menu
   </button>
 </template>

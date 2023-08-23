@@ -1,7 +1,7 @@
 // © Manuel Matuzović: https://web.dev/website-navigation/
 
 const nav = document.querySelector('#main-nav');
-const list = nav.querySelector('ul');
+const listContainer = nav.querySelector('.site-nav-list-container');
 const burgerClone = document.querySelector('#burger-template').content.cloneNode(true);
 
 const button = burgerClone.querySelector('button');
@@ -30,4 +30,4 @@ document.addEventListener('click', e => {
   }
 });
 
-nav.insertBefore(burgerClone, list);
+nav.insertBefore(burgerClone, listContainer);

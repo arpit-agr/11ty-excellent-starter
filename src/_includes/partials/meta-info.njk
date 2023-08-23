@@ -12,7 +12,16 @@
   "
 />
 
-<meta name="theme-color" content="{{ meta.themeColor }}" />
+<meta
+  name="theme-color"
+  content="{{ designTokens.colors.items[0].value }}"
+  media="(prefers-color-scheme: light)"
+>
+<meta
+  name="theme-color"
+  content="{{ designTokens.colors.items[10].value }}"
+  media="(prefers-color-scheme: dark)"
+>
 <meta name="robots" content="index,follow" /><!-- All Search Engines -->
 <meta name="googlebot" content="index,follow" /><!-- Google Specific -->
 <meta name="generator" content="{{ eleventy.generator }}" /><!-- thank you, Zach -->

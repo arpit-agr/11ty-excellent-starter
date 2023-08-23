@@ -1,6 +1,20 @@
 .site-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  --stack-space: 0;
+  isolation: isolate;
+  z-index: 1;
+
+  & a {
+    display: inline-flex;
+  }
+
+  & a,
+  button {
+    padding-block: var(--nav-link-padding-block);
+    color: inherit;
+  }
+}
+
+.site-head__inner {
+  --repel-space: 0 var(--gutter);
+  background: var(--color-neutral-bg);
 }

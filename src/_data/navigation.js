@@ -7,6 +7,10 @@ module.exports = {
     {
       text: 'Link',
       url: '#'
+    },
+    {
+      text: 'Contact',
+      url: '/contact/'
     }
   ],
   bottom: [

@@ -1,4 +1,6 @@
 lite-youtube {
+  --flow-space: var(--space-m-l);
+
   /* Web Components display inline by default  */
   display: block;
 }
