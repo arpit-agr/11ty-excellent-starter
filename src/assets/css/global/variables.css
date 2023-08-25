@@ -16,8 +16,8 @@
   --color-brand-primary-text: var(--color-blue-8);
 
   /* bg */
-  --color-neutral-bg: var(--color-slate-1);
-  --color-primary-bg: var(--color-blue-1);
+  --color-neutral-primary-bg: var(--color-slate-1);
+  --color-brand-primary-bg: var(--color-blue-1);
 
   /* border */
   --color-neutral-border: var(--color-slate-4);
@@ -33,8 +33,8 @@
     --color-brand-primary-text: var(--color-blue-4);
 
     /* bg */
-    --color-neutral-bg: var(--color-slate-11);
-    --color-primary-bg: var(--color-blue-11);
+    --color-neutral-primary-bg: var(--color-slate-11);
+    --color-brand-primary-bg: var(--color-blue-11);
 
     /* border */
     --color-neutral-border: var(--color-slate-8);

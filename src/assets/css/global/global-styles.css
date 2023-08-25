@@ -13,7 +13,7 @@
 body {
   --stack-horizontal-alignment: stretch;
 
-  background: var(--color-neutral-bg);
+  background: var(--color-neutral-primary-bg);
   color: var(--color-neutral-secondary-text);
 
   font-size: var(--step-0);

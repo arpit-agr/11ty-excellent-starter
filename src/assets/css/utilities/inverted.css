@@ -2,5 +2,5 @@
   -webkit-font-smoothing: antialiased;
 
   background-color: var(--color-neutral-primary-text);
-  color: var(--color-neutral-bg);
+  color: var(--color-neutral-primary-bg);
 }

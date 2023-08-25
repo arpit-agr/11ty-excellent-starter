@@ -4,15 +4,16 @@
   overflow: auto;
   background: linear-gradient(
       to right,
-      var(--color-neutral-bg) 30%,
+      var(--color-neutral-primary-bg) 30%,
       rgba(255, 255, 255, 0)
     ),
-    linear-gradient(to right, rgba(255, 255, 255, 0), var(--color-neutral-bg) 70%) 100% 0,
+    linear-gradient(to right, rgba(255, 255, 255, 0), var(--color-neutral-primary-bg) 70%)
+      100% 0,
     radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
     radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 100%
       0%;
   background-repeat: no-repeat;
-  background-color: var(--color-neutral-bg);
+  background-color: var(--color-neutral-primary-bg);
   background-size: 1.2rem 100%, 1.2rem 100%, 0.4rem 100%, 0.4rem 100%;
   background-attachment: local, local, scroll, scroll;
 }
@@ -111,7 +112,7 @@
 
   min-block-size: var(--nav-list-height, var(--full-vh));
   padding: var(--nav-list-padding, var(--space-xl) var(--gutter) var(--space-l-xl));
-  background: var(--nav-list-background, var(--color-neutral-bg));
+  background: var(--nav-list-background, var(--color-neutral-primary-bg));
 
   /* overflow: auto; */
   /* text-align: end; */

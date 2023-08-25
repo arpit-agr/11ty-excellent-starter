@@ -16,5 +16,5 @@
 
 .site-head__inner {
   --repel-space: 0 var(--gutter);
-  background: var(--color-neutral-bg);
+  background: var(--color-neutral-primary-bg);
 }

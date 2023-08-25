@@ -8,7 +8,7 @@ lite-youtube {
   --stack-horizontal-alignment: center;
 
   padding: 1em;
-  background-color: var(--color-primary-bg);
+  background-color: var(--color-brand-primary-bg);
   aspect-ratio: 16 / 9;
   outline: solid;
 
