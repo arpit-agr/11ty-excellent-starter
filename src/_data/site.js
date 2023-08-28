@@ -4,7 +4,7 @@ module.exports = {
   siteDescription:
     'Eleventy starter based on the workflow suggested by buildexcellentwebsit.es.',
   siteType: 'Person', // schema
-  locale: 'en_EN',
+  locale: 'en',
   lang: 'en',
   author: '', // i.e. author's name. Must be set.
   authorEmail: '', // i.e. email of the author
