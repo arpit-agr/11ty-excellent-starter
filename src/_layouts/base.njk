@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
   <head>
-    <!-- charset/http-equiv/viewport -->
+    <!-- charset/viewport -->
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- title -->
@@ -15,12 +14,15 @@
       {% else %}{{ site.siteName }}{% endif %}
     </title>
 
-    <link rel="stylesheet" href="/assets/css/global.css?{{ assetHash }}" />
-
-    {# https://www.matuzo.at/blog/html-boilerplate/ #}
-    <script type="module">
+    <!-- 
+      synchronous JS before CSS 
+      https://www.youtube.com/watch?v=MHyAOZ45vnU
+    -->
+    <script>
       document.documentElement.classList.add('has-js');
     </script>
+
+    <link rel="stylesheet" href="/assets/css/global.css?{{ assetHash }}" />
 
     <!-- preloads -->
     <link
@@ -67,9 +69,9 @@
 
     <!-- defered js  -->
     <script src="/assets/scripts/app.js?{{ assetHash }}" defer></script>
+    <!-- if youtube is activated in the yaml -->
     {% if youtube %}
-    <!-- youtube if actvated in yaml -->
-      <script src="/assets/scripts/lite-youtube.js?{{ assetHash }}" defer></script>
+    <script src="/assets/scripts/lite-youtube.js?{{ assetHash }}" defer></script>
     {% endif %}
   </body>
 </html>
