@@ -8,15 +8,15 @@ const clampGenerator = require('./config/css-utils/clamp-generator.js');
 const tokensToTailwind = require('./config/css-utils/tokens-to-tailwind.js');
 
 // Raw design tokens
-const colorTokens = require('./src/_data/designtokens/colors.json');
-const fontFamilyTokens = require('./src/_data/designtokens/font-family.json');
-const spacingTokens = require('./src/_data/designtokens/fluid-space.json');
-const fontSizeTokens = require('./src/_data/designtokens/fluid-type.json');
+const colorTokens = require('./src/_data/designTokens/colors.json');
+const fontFamilyTokens = require('./src/_data/designTokens/font-family.json');
+const spacingTokens = require('./src/_data/designTokens/fluid-space.json');
+const fontSizeTokens = require('./src/_data/designTokens/fluid-type.json');
 
-const fontWeightTokens = require('./src/_data/designtokens/font-weight.json');
-const leadingTokens = require('./src/_data/designtokens/leading.json');
-const trackingTokens = require('./src/_data/designtokens/tracking.json');
-const measureTokens = require('./src/_data/designtokens/measure.json');
+const fontWeightTokens = require('./src/_data/designTokens/font-weight.json');
+const leadingTokens = require('./src/_data/designTokens/leading.json');
+const trackingTokens = require('./src/_data/designTokens/tracking.json');
+const measureTokens = require('./src/_data/designTokens/measure.json');
 
 // Process design tokens
 const colors = tokensToTailwind(colorTokens.items);

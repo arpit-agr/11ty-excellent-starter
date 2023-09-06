@@ -1,6 +1,6 @@
 /** © Andy Bell - https://buildexcellentwebsit.es/ */
 
-const viewports = require('../../src/_data/designtokens/viewports.json');
+const viewports = require('../../src/_data/designTokens/viewports.json');
 
 /**
  * Takes an array of tokens and sends back and array of name
