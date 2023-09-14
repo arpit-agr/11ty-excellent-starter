@@ -29,12 +29,21 @@ const clampGenerator = tokens => {
     const slope = (maxSize - minSize) / (maxViewport - minViewport);
     const intersection = -1 * minViewport * slope + minSize;
 
-    return {
-      name,
-      value: `clamp(${minSize}rem, ${intersection.toFixed(2)}rem + ${(
-        slope * 100
-      ).toFixed(2)}vw, ${maxSize}rem)`
-    };
+    if (minSize > maxSize) {
+      return {
+        name,
+        value: `clamp(${maxSize.toFixed(2)}rem, ${intersection.toFixed(2)}rem + ${(
+          slope * 100
+        ).toFixed(2)}vw, ${minSize.toFixed(2)}rem)`
+      };
+    } else {
+      return {
+        name,
+        value: `clamp(${minSize.toFixed(2)}rem, ${intersection.toFixed(2)}rem + ${(
+          slope * 100
+        ).toFixed(2)}vw, ${maxSize.toFixed(2)}rem)`
+      };
+    }
   });
 };
 
